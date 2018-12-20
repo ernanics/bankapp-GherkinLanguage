@@ -36,7 +36,7 @@ public class ATMTest {
 			atm.withDraw("9999999999999999", 123456, 31);
 			assertEquals(atm.getBank().getAccountByCardNumber("9999999999999999").getBalance(),90.0,0.0);
 		} catch (Exception e) {
-			
+			assertEquals(e.getMessage().equals("O valor informado é inválido!"),true);
 		}
 	}
 	
@@ -46,7 +46,7 @@ public class ATMTest {
 			atm.withDraw("9999999999999999", 123456, 100);
 			assertEquals(atm.getBank().getAccountByCardNumber("9999999999999999").getBalance(),90.0,0.0);
 		} catch (Exception e) {
-			assertEquals(e.getMessage().equals("Non-sufficient funds! Please, check your balance and try again."),true);
+			assertEquals(e.getMessage().equals("Saldo insuficiente! Por favor, verifique seu saldo e tente novamente."),true);
 		}
 	}
 	
@@ -56,7 +56,7 @@ public class ATMTest {
 			atm.withDraw("9999999999999999", 123123, 100);
 			assertEquals(atm.getBank().getAccountByCardNumber("9999999999999999").getBalance(),90.0,0.0);
 		} catch (Exception e) {
-			assertEquals(e.getMessage().equals("Invalid PIN!"),true);
+			assertEquals(e.getMessage().equals("Senha inválida!"),true);
 		}
 	}
 	
@@ -67,7 +67,7 @@ public class ATMTest {
 			atm.withDraw("9999999999999999", 123123, 100);
 			assertEquals(atm.getBank().getAccountByCardNumber("9999999999999999").getBalance(),90.0,0.0);
 		} catch (Exception e) {
-			assertEquals(e.getMessage().equals("Invalid PIN! You have one more attempt in the next 2 hours, otherwise your bank card will be blocked for security reasons!"),true);
+			assertEquals(e.getMessage().equals("Senha inválida! Você tem mais uma tentativa nas próximas 2 horas, do contário, seu cartão será bloqueado por motivos de segurança."),true);
 		}
 	}
 	
@@ -79,7 +79,7 @@ public class ATMTest {
 			atm.withDraw("9999999999999999", 123123, 100);
 			assertEquals(atm.getBank().getAccountByCardNumber("9999999999999999").getBalance(),90.0,0.0);
 		} catch (Exception e) {
-			assertEquals(e.getMessage().equals("Invalid PIN! Your Bank Card has been blocked for security reasons! Please, call customer service for more information."),true);
+			assertEquals(e.getMessage().equals("Senha inválida! Seu cartão foi bloqueado por motivos de segurança! Entre em contato com a central de serviços para maiores informações."),true);
 		}
 	}
 }

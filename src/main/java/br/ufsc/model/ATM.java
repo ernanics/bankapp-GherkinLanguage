@@ -52,7 +52,7 @@ public class ATM {
 		Card card = customer.getCardByCardNumber(cardNumber);
 		
 		if (card.isBlocked()){
-			throw new Exception("This card is blocked!");
+			throw new Exception("Este cartão está bloqueado!");
 		}
 		
 		//Check bills
@@ -62,23 +62,23 @@ public class ATM {
 		//Check PIN
 		if (!this.checkPIN(card, pin)){
 			if(card.getNumberOfIncorrectPasswordWithin72hrs()==1){
-				throw new Exception("Invalid PIN!");
+				throw new Exception("Senha inválida!");
 			}
 			if(card.getNumberOfIncorrectPasswordWithin72hrs()==2){
 				long time = (new Date().getTime())-(card.getDateOfLastIncorrectPassword().getTime());
 				time = (72*3600000)- time;
 				
-				throw new Exception("Invalid PIN! You have one more attempt in the next " + card.getTimeToExpireWrongPassword() + " hours, otherwise your bank card will be blocked for security reasons!");
+				throw new Exception("Senha inválida! Você tem mais uma tentativa nas próximas " + card.getTimeToExpireWrongPassword() + " horas, do contário, seu cartão será bloqueado por motivos de segurança.");
 			}
 			if(card.getNumberOfIncorrectPasswordWithin72hrs()>2){
-				throw new Exception("Invalid PIN! Your Bank Card has been blocked for security reasons! Please, call customer service for more information.");
+				throw new Exception("Senha inválida! Seu cartão foi bloqueado por motivos de segurança! Entre em contato com a central de serviços para maiores informações.");
 			}
 			
 		}
 		
 		//Check balance
 		if (amount > card.getAccount().getBalance()){
-			throw new Exception("Non-sufficient funds! Please, check your balance and try again.");
+			throw new Exception("Saldo insuficiente! Por favor, verifique seu saldo e tente novamente.");
 		}
 		
 		card.getAccount().setBalance(card.getAccount().getBalance()-amount);
@@ -120,7 +120,7 @@ public class ATM {
 		
 		//Fail
 		if ((bill == this.getNextBill(bill))&&(partialAmount>0)&&(firstAttempt == this.getNextBill(firstAttempt))){
-			throw new Exception("The entered amount is invalid!");
+			throw new Exception("O valor informado é inválido!");
 		}
 		
 		//Try with other combination

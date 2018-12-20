@@ -20,7 +20,7 @@ public class Bank {
 	public Customer getCustomerByCardNumber(String cardNumber) throws Exception{
 		for(Customer customer : this.getCustomers()){
 			for(Card card : customer.getCards()){
-				if (card.getNumber() == cardNumber){
+				if (card.getNumber().equals(cardNumber)){
 					return customer;
 				}
 			}
@@ -31,7 +31,7 @@ public class Bank {
 	public Account getAccountByCardNumber(String cardNumber) throws Exception{
 		for(Customer customer : this.getCustomers()){
 			for(Card card : customer.getCards()){
-				if (card.getNumber() == cardNumber){
+				if (card.getNumber().equals(cardNumber)){
 					return card.getAccount();
 				}
 			}
@@ -42,7 +42,7 @@ public class Bank {
 	public Card getCardByNumber(String cardNumber) throws Exception{
 		for(Customer customer : this.getCustomers()){
 			for(Card card : customer.getCards()){
-				if (card.getNumber() == cardNumber){
+				if (card.getNumber().equals(cardNumber)){
 					return card;
 				}
 			}
@@ -54,7 +54,7 @@ public class Bank {
 		List<Customer> listOfCustomer = new ArrayList<Customer>();
 		for(Customer customer : this.getCustomers()){
 			for(Card card : customer.getCards()){
-				if (card.getAccount().getAccountNumber() == accountNumber){
+				if (card.getAccount().getAccountNumber().equals(accountNumber)){
 					listOfCustomer.add(customer);
 				}
 			}

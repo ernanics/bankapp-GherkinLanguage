@@ -51,7 +51,7 @@ public class Customer {
 	
 	public Card getCardByCardNumber(String cardNumber) throws Exception{
 		for(Card card : this.getCards()){
-			if(card.getNumber() == cardNumber){
+			if(card.getNumber().equals(cardNumber)){
 				return card;
 			}
 		}

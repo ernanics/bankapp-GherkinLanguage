@@ -141,6 +141,9 @@ public class Card {
 	
 	public void insertPinHistory(boolean result, Date date) {
 		this.getPinHistory().add(new PinHistory(result, date));
+		if (getNumberOfIncorrectPasswordWithin72hrs() >=3) {
+			this.setBlocked(true);
+		}
 	}
 
 	public boolean isBlocked() {
