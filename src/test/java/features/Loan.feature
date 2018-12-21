@@ -14,15 +14,15 @@ Então eu acesso o aplicativo do banco, informo estes valores e o aplicativo me 
     com juros.
 
     Given um cliente qualquer
-    When o cliente informar R$ <valorFinanciamento> como o valor a ser financiado
+    When o cliente informar $<valorFinanciamento> como o valor a ser financiado
     And e que a taxa de juros mensais do financiamento é <pcJuros>%
     And e que o financiamemnto será pago em <nuParcelas> parcelas
-    Then o sistema calcula que o valor de cada uma das parcelas e <valorDaParcelas> 
-    And que o valor total do financiamento com juros e <valorFinanciamentoComJuros>
+    Then o sistema calcula que o valor de cada uma das parcelas e $<valorDaParcelas> 
+    And que o valor total do financiamento com juros e $<valorFinanciamentoComJuros>
 
     Examples: 
       | valorFinanciamento 	|pcJuros | nuParcelas | valorDaParcelas | valorFinanciamentoComJuros |
-      |      10,000.00			| 0.5334 |  			 12 |          862.51 |      		         10,350.09 |
-      | 100,000,000.00 			| 0.3227 |         36 |    2,946,725.65 |         		106,082,159.40 |
-      |         500.00 			| 0.1250 |          5 |          100.38 |           	        501.90 |
-      |   3,250,500.00 			| 0.7665 |         72 |       58,911.94 |            		4,241,659.68 |
+      |       10000.00 			| 0.5334 |  			 12 |          862.51 |      		          10350.09 |
+      |   100000000.00 			| 0.3227 |         36 |    	 2946725.64 |         			106082123.11 |
+      |         500.00 			| 0.1250 |          5 |          100.38 |           	        501.88 |
+      |     3250500.00 			| 0.7665 |         72 |        58911.94 |            			4241659.83 |
