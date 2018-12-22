@@ -72,7 +72,7 @@ Então eu vou até um ATM, realizo a identificação através de cartão e senha
     And e pressiona a tecla Confirma
     Then o caixa eletronico mostra a mensagem "Senha inválida! Seu cartão foi bloqueado por motivos de segurança! Entre em contato com a central de serviços para maiores informações."
     
-    Scenario: Um cliente vai até um Caixa eletrônico e não consegue realizar o saque pois seu cartao estaá bloqueado.
+    Scenario: Um cliente vai até um Caixa eletrônico e não consegue realizar o saque pois seu cartao está bloqueado.
 
     Given o cliente "J. F.Piper"
     And o número da conta corrente do cliente e "125654-08"
