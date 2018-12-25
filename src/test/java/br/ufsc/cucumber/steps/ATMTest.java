@@ -7,7 +7,6 @@ import static org.junit.Assert.*;
 
 import br.ufsc.model.ATM;
 import br.ufsc.model.PinHistory;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
